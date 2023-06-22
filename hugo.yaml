@@ -1,0 +1,91 @@
+baseURL: 'https://soyunpollo.dev/'
+languageCode: 'en-us'
+title: 'Ruben Meza'
+theme: 'PaperMod'
+paginate: 5
+
+enableInlineShortcodes: true
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+enableEmoji: true
+pygmentsUseClasses: true
+  # googleAnalytics: UA-123-45
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+# outputs:
+#   home:
+#     - HTML
+#     - RSS
+#     - JSON
+
+params:
+  env: production
+  description: "A Software Engineer tales"
+  author: Ruben Meza
+  defaultTheme: auto
+    # disableThemeToggle: true
+  ShowShareButtons: true
+  ShowReadingTime: true
+  # disableSpecial1stPost: true
+  displayFullLangName: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowRssButtonInSectionTermList: true
+  ShowToc: true
+  # comments: false
+  
+  profileMode:
+    enabled: true
+    title: "Software Engineer | #golang | #typescript | work at @digitalocean"
+    imageUrl: "images/me.jpeg"
+    imageTitle: my image
+    imageWidth: 120
+    imageHeight: 120
+    buttons:
+      - name: archives
+        url: archives
+      - name: categories
+        url: categories/
+      - name: tags
+        url: tags/
+
+
+  # homeInfoParams:
+  #   Title: "Hi there \U0001F44B"
+  #   Content: Welcome to my blog
+
+  socialIcons:
+    - name: twitter
+      url: "https://twitter.com/_SoyUnPollo"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/rubenmezarazo/"
+    - name: github
+      url: "https://github.com/rubenmeza"
+    - name: gitlab
+      url: "https://gitlab.com/ruben.meza"
+
+menu:
+  main:
+    - identifier: archives
+      name: archives
+      url: archives
+      weight: 5
+    - identifier: categories
+      name: categories
+      url: categories/
+      weight: 10
+    - identifier: tags
+      name: tags
+      url: tags/
+      weight: 10
+
+taxonomies:
+  category: categories
+  series: series
+  tag: tags
