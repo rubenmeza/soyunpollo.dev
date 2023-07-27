@@ -43,7 +43,7 @@ params:
   profileMode:
     enabled: true
     title: "Software Engineer | #golang | #typescript | work at @digitalocean"
-    imageUrl: "images/me.jpeg"
+    imageUrl: "images/dancing-gopher.gif"
     imageTitle: my image
     imageWidth: 120
     imageHeight: 120
