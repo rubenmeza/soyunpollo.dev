@@ -71,6 +71,10 @@ params:
     - name: gitlab
       url: "https://gitlab.com/ruben.meza"
 
+  # Add Social params for theme compatibility  
+  Social:
+    twitter: "_SoyUnPollo"
+
 menu:
   main:
     - identifier: archives
