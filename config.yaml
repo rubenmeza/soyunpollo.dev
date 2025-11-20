@@ -2,7 +2,8 @@ baseURL: 'https://soyunpollo.dev/'
 languageCode: 'en-us'
 title: 'Ruben Meza'
 theme: 'PaperMod'
-paginate: 5
+pagination:
+  pagerSize: 5
 
 enableInlineShortcodes: true
 enableRobotsTXT: true
