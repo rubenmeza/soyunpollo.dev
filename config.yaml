@@ -66,6 +66,8 @@ params:
       url: "https://twitter.com/_SoyUnPollo"
     - name: linkedin
       url: "https://www.linkedin.com/in/rubenmezarazo/"
+    - name: cv
+      url: "https://github.com/rubenmeza/rubenmeza/blob/main/resume_2026.pdf"
     - name: github
       url: "https://github.com/rubenmeza"
     - name: gitlab
