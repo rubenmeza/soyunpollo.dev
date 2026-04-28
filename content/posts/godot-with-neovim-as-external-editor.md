@@ -7,9 +7,11 @@ ShowToc: false
 draft: false
 ---
 
-I like Godot, and I like Neovim. So I wanted to use both at the same time — open my GDScript files in Neovim, but keep all the help that Godot's language server gives me, like autocomplete and go-to-definition.
+I'm starting my journey into game development. I love games, and for a long time I wanted to learn how to build them. So here I am, opening Godot for the first time as a real tool, not just to play around.
 
-The good news: it works, and the setup is small.
+But there is a problem. I am very used to Neovim. I have my own config, my own keybindings, and the vim motions are part of how I think when I write code. Working without them feels slow and uncomfortable. I did not want to give that up just because I am writing GDScript now.
+
+The good news: I don't have to. Godot can use Neovim as the external editor, and Godot's language server still gives me autocomplete, go-to-definition, and diagnostics inside Neovim. Here is how I set it up.
 
 ## Tell Godot to use Neovim
 
