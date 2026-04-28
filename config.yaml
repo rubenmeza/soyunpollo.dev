@@ -49,6 +49,8 @@ params:
     imageWidth: 120
     imageHeight: 120
     buttons:
+      - name: work
+        url: work/
       - name: archives
         url: archives
       - name: categories
@@ -79,6 +81,10 @@ params:
 
 menu:
   main:
+    - identifier: work
+      name: work
+      url: work/
+      weight: 1
     - identifier: archives
       name: archives
       url: archives
