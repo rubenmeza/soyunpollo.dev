@@ -55,6 +55,8 @@ params:
         url: categories/
       - name: tags
         url: tags/
+      - name: subscribe
+        url: "https://follow.it/ruben-meza?leanpub"
 
 
   # homeInfoParams:
@@ -72,6 +74,8 @@ params:
       url: "https://github.com/rubenmeza"
     - name: gitlab
       url: "https://gitlab.com/ruben.meza"
+    - name: rss
+      url: "index.xml"
 
 menu:
   main:
