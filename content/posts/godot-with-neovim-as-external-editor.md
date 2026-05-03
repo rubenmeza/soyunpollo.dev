@@ -53,4 +53,53 @@ Keep Godot open. Open a `.gd` file in Neovim and run `:LspInfo`. You should see 
 
 One small thing to remember: the LSP only runs while Godot is open. Close the editor and the server stops. That is fine for me — I always have Godot open when I write game code anyway.
 
+## Reuse the same Neovim instance
+
+After using this for a while, one thing started to annoy me. Every time I clicked a `.gd` script in Godot, a new terminal opened with a new Neovim. Five scripts, five terminals. Not what I wanted.
+
+The fix: have one Neovim listen on a socket, and send new files to it instead of starting a fresh one.
+
+First, tell Neovim to start a server when it opens. I added this to my config:
+
+```lua
+local godot_socket = "/tmp/godot.pipe"
+if vim.uv.fs_stat(godot_socket) == nil then
+  pcall(vim.fn.serverstart, godot_socket)
+end
+```
+
+Then a small wrapper script at `~/.local/bin/godot-nvim`:
+
+```bash
+#!/usr/bin/env bash
+set -e
+
+SOCK=/tmp/godot.pipe
+file="$1"
+line="${2:-1}"
+col="${3:-1}"
+
+if [ -S "$SOCK" ]; then
+  nvim --server "$SOCK" --remote-send "<C-\\><C-n>:edit ${file}<CR>:call cursor(${line}, ${col})<CR>"
+else
+  rm -f "$SOCK"
+  alacritty -e nvim --listen "$SOCK" "${file}" "+call cursor(${line}, ${col})" &
+fi
+```
+
+Make it executable:
+
+```bash
+chmod +x ~/.local/bin/godot-nvim
+```
+
+Now update Godot's external editor settings:
+
+- **Exec Path**: `/home/<you>/.local/bin/godot-nvim`
+- **Exec Flags**: `"{file}" "{line}" "{col}"`
+
+The first click opens a terminal with Neovim, and the socket starts. Every click after that jumps to the file inside the same Neovim. No more terminal spam.
+
+If Neovim is closed but the socket file is still there, the wrapper removes it and opens a fresh terminal. Stale socket case handled.
+
 Small setup, big win.
