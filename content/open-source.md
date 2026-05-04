@@ -13,5 +13,5 @@ I use open source tools every day — Omarchy, Neovim, Hugo, and many others —
 
 ## Contributions
 
-- [mattermost/mattermost-webapp#9331](https://github.com/mattermost/mattermost-webapp/pull/9331)
-- [gitlab-org/gitlab!75934](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/75934)
+- **Mattermost** — [Migrate `components/admin_console/permission_schemes_settings` and associated tests to TypeScript](https://github.com/mattermost/mattermost-webapp/pull/9331)
+- **GitLab** — [Add title with file name to `file_row`](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/75934)
