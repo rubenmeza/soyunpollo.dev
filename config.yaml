@@ -53,6 +53,8 @@ params:
         url: work/
       - name: open source
         url: open-source/
+      - name: setup
+        url: setup/
       - name: archives
         url: archives
       - name: categories
@@ -91,6 +93,10 @@ menu:
       name: open source
       url: open-source/
       weight: 2
+    - identifier: setup
+      name: setup
+      url: setup/
+      weight: 3
     - identifier: archives
       name: archives
       url: archives
