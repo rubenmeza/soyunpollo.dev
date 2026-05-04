@@ -51,6 +51,8 @@ params:
     buttons:
       - name: work
         url: work/
+      - name: open source
+        url: open-source/
       - name: archives
         url: archives
       - name: categories
@@ -85,6 +87,10 @@ menu:
       name: work
       url: work/
       weight: 1
+    - identifier: open-source
+      name: open source
+      url: open-source/
+      weight: 2
     - identifier: archives
       name: archives
       url: archives
