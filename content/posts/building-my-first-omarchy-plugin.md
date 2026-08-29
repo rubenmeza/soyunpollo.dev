@@ -154,17 +154,41 @@ focusTarget: root.confirmOpen ? confirmFocus : keyCatcher
 
 ## Then I found out it already existed
 
-Near the end I checked the marketplace registry properly, and I found [Portboard](https://github.com/SVIGHNESH/omarchy-portboard). Listed two weeks ago. It lists localhost ports with the process and the folder. Enter opens, ctrl+k kills.
+Near the end I checked the marketplace registry properly. I found [Portboard](https://github.com/SVIGHNESH/omarchy-portboard), listed two weeks before mine. Then I looked again, with better search words, and found four more.
 
-My mistake was earlier: I looked at the marketplace website, the page said "0 plugins", and I believed it. The page builds its list with JavaScript, so my check saw an empty page. The real registry has 1673 entries. I should have read the data, not the page.
+Listening ports are one of the most crowded corners of the marketplace:
+
+- [Omaports](https://github.com/mich-nduka/omaports) — a bar widget with a count and a panel, ports named by project. Almost exactly my design, published first.
+- [Portboard](https://github.com/SVIGHNESH/omarchy-portboard) — a full screen panel you summon and filter by typing, plus an fzf version for SSH.
+- [omaport](https://github.com/sahzudin/omaport) — a bar widget for inspecting and managing local ports.
+- [okurmustafa/omarchy-ports](https://github.com/okurmustafa/omarchy-ports) — same idea for servers: it maps each port to its systemd unit and can restart the service.
+- yuler/omaports — which I only found when I wrote a script to search properly.
+
+Omaports hurt a little to read. Same shape, same idea, and it names ports better than mine: it reads the command line and shows `3000 · Vite`, while I show `node`. It can also open a terminal in the project folder. That person did the work before me and did part of it better.
+
+My mistake was hours earlier. I looked at the marketplace website, the page said "0 plugins", and I believed it. The page builds its list with JavaScript, so my check saw an empty page. The real registry has 1673 entries, sitting in a JSON file in the marketplace repo the whole time. I read the page instead of the data.
 
 I thought about deleting my plugin. I did not, for two reasons.
 
-First, they are not the same thing. Portboard is a full screen panel you summon and filter by typing. Mine sits in the bar and shows a number, so I know something is running without asking. Portboard shows one row per port; I group by process. Mine asks before it kills.
+First, they are not the same. Mine groups by process, not by port: my Godot editor is one row with two ports, and a server with worker processes is one row, not five. It asks a port if it speaks HTTP before offering to open it, so a database port never sends you to a dead browser tab. And stopping is two questions, not one key: it sends `SIGTERM`, and if the server is still alive five seconds later it asks again before `SIGKILL`.
 
-Second, the registry already has three Docker plugins. Different shapes of the same idea can live together.
+Second, the registry already has five Docker plugins. Different shapes of the same idea can live together.
 
-So I published mine and added a section to my README that says what Portboard does better and links to it. If you want a keyboard launcher, use theirs.
+So I published mine, and my README now lists the neighbours with what each one does better than mine. If you want typing filters or framework names, install theirs instead. That is not modesty, it is just true.
+
+Then I wrote the thing I should have had on day one:
+
+```bash
+$ ./scripts/registry-check port listen
+Registry: 1673 listed sources
+LISTED: 12 match(es)
+
+  mich-nduka/omaports
+    ids: io.github.mich-nduka.omaports
+    Open dev ports on localhost in the Omarchy bar...
+```
+
+It searches the registry and GitHub, and it also finds plugins that exist on GitHub but were never listed. It taught me one more thing immediately: search by word stem. `ports` does not match `portboard`.
 
 ## Install
 
@@ -198,6 +222,6 @@ Bash and manifest changes are picked up alone. QML changes need `omarchy-restart
 
 ## What I take from this
 
-Checking if something exists is part of the work, and reading the data beats reading the website.
+Checking if something already exists is part of the work, not something you do at the end. And when you check, read the data, not the website.
 
 The rest is the usual lesson in a new shape: read the component before you extend it, and never trust a green result you did not try to make red.
